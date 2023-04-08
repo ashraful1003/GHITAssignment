@@ -1,5 +1,5 @@
-import 'package:ashraful/screens/first_screen.dart';
 import 'package:ashraful/services/list_of_services.dart';
+import 'package:ashraful/views/screens/first/first_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 

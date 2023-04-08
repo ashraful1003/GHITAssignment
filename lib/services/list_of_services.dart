@@ -14,17 +14,16 @@ class ListOfServices {
     Uri apiUrl = Uri.parse(APIROOT);
 
     return http.get(apiUrl, headers: myHeaders).then((value) {
-      print(value.statusCode);
       if (value.statusCode == 200) {
         final jsonData = json.decode(value.body);
         AllInfoModel? infoModel;
 
         infoModel = AllInfoModel.fromJson(jsonData);
-        print(infoModel.elementCount);
 
         return APIResponse<AllInfoModel>(data: infoModel);
       }
 
+      /// if there is any status error it will return the status code
       return APIResponse<AllInfoModel>(
           error: true, errorMessage: value.statusCode.toString());
     }).catchError((e) => APIResponse<AllInfoModel>(

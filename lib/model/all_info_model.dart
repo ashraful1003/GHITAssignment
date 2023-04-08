@@ -1,13 +1,18 @@
 import 'dart:convert';
+import 'package:intl/intl.dart';
 
 AllInfoModel allInfoModelFromJson(String str) => AllInfoModel.fromJson(json.decode(str));
 
 String allInfoModelToJson(AllInfoModel data) => json.encode(data.toJson());
 
+/// this is the super class here
 class AllInfoModel {
     AllInfoModel({
         required this.links,
         required this.elementCount,
+        /// we basically need nearEarthObjects
+        ///
+        /// I have kept others for future extension
         required this.nearEarthObjects,
     });
 
@@ -52,6 +57,7 @@ class AllInfoModelLinks {
     };
 }
 
+/// so this is the main class we actually need
 class NearEarthObject {
     NearEarthObject({
         required this.links,
